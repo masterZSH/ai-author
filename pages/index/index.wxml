@@ -1,1 +1,2 @@
 <view class="container"></view>
+<mp-loading show="true"></mp-loading>

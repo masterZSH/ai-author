@@ -1,0 +1,48 @@
+page{
+  height: 100%;
+  width:100%;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+/* 显示的题目 */
+.container .question {
+  width: 100%;
+  height: 10%;
+  background: #f0efef;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #fb21a1;
+  box-shadow: 2rpx 5rpx 2rpx silver;
+}
+/* 刷新按钮 */
+.container .question .userinfo-avatar {
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.container .question text {
+  margin: auto 10rpx auto 20rpx;
+}
+.container .question .refresh-btn {
+  width: 50rpx;
+  height: 50rpx;
+  transform: scaleX(-1);
+}
+/* 中间画板 */
+.container .palette {
+  width: 100%;
+  height: 56%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2rpx 5rpx 2rpx silver;
+}

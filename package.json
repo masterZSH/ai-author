@@ -1,0 +1,17 @@
+{
+  "name": "s1",
+  "version": "0.0.1",
+  "scripts": {},
+  "license": "Apache-2.0",
+  "devDependencies": {},
+  "dependencies": {
+    "@tensorflow/tfjs-backend-cpu": "2.0.1",
+    "@tensorflow/tfjs-backend-wasm": "2.0.0",
+    "@tensorflow/tfjs-backend-webgl": "2.0.1",
+    "@tensorflow/tfjs-converter": "2.0.1",
+    "@tensorflow/tfjs-core": "2.0.1",
+    "@tensorflow/tfjs-layers": "2.0.1",
+    "fetch-wechat": "0.0.3",
+    "regenerator-runtime": "0.13.5"
+  }
+}

@@ -4,15 +4,17 @@
 /* 加载tensorflow库 */
 const tf = require('@tensorflow/tfjs-core')
 const tfLayers = require('@tensorflow/tfjs-layers');
-const { async } = require('regenerator-runtime');
+const {
+  async
+} = require('regenerator-runtime');
 const data = require('./data')
 
 
 
 const MODELS_URL = {
   // 'flower': 'file://images/flower-model.json',
-  'lx':'https://aidraw-6gmdpk1q1d0cf4c4-1312936391.tcloudbaseapp.com/lx-model/model.json',
- 
+  'lx': 'https://aidraw-6gmdpk1q1d0cf4c4-1312936391.tcloudbaseapp.com/lx-model/model.json',
+
 }
 
 /* 全局变量 */
@@ -46,7 +48,7 @@ async function loadModels(modelType) {
   if (modelType) {
     curModelType = modelType;
   }
-  
+
   if (models[curModelType]) { // 模型已加载
     return true;
   }
@@ -65,73 +67,73 @@ async function loadModels(modelType) {
   }
 
 
-  var r =  wx.request({
-    url:"https://aidraw-6gmdpk1q1d0cf4c4-1312936391.tcloudbaseapp.com/lx-model/lx",
-    success:async function(e){
+  var r = wx.request({
+    url: "https://aidraw-6gmdpk1q1d0cf4c4-1312936391.tcloudbaseapp.com/lx-model/lx",
+    success: async function (e) {
       console.log(r)
-  var model = models[curModelType]
-  // await models[curModelType].predict(strokeTensor);
-  const sampleLen = model.inputs[0].shape[1];
+      var model = models[curModelType]
+      // await models[curModelType].predict(strokeTensor);
+      const sampleLen = model.inputs[0].shape[1];
 
-  const textData = new data.TextData('text-data', e.data, sampleLen, 3);
+      const textData = new data.TextData('text-data', e.data, sampleLen, 3);
 
-  // Get a seed text from the text data object.
-  const [seed, seedIndices] = textData.getRandomSlice();
-  
-  console.log(`Seed text:\n"${seed}"\n`);
+      // Get a seed text from the text data object.
+      const [seed, seedIndices] = textData.getRandomSlice();
 
-  const generated = await generateText(
-      model, textData, seedIndices, 250, 0.6);
-     
+      console.log(`Seed text:\n"${seed}"\n`);
 
-  console.log(`Generated text:\n"${generated}"\n`);
+      const generated = await generateText(
+        model, textData, seedIndices, 250, 0.6);
+
+
+      console.log(`Generated text:\n"${generated}"\n`);
     }
   })
   async function generateText(
     model, textData, sentenceIndices, length, temperature,
     onTextGenerationChar) {
-  const sampleLen = model.inputs[0].shape[1];
-  const charSetSize = model.inputs[0].shape[2];
+    const sampleLen = model.inputs[0].shape[1];
+    const charSetSize = model.inputs[0].shape[2];
 
-  // Avoid overwriting the original input.
-  sentenceIndices = sentenceIndices.slice();
+    // Avoid overwriting the original input.
+    sentenceIndices = sentenceIndices.slice();
 
-  let generated = '';
-  while (generated.length < length) {
-    // Encode the current input sequence as a one-hot Tensor.
-    const inputBuffer =
+    let generated = '';
+    while (generated.length < length) {
+      // Encode the current input sequence as a one-hot Tensor.
+      const inputBuffer =
         new tf.TensorBuffer([1, sampleLen, charSetSize]);
 
-    // Make the one-hot encoding of the seeding sentence.
-    for (let i = 0; i < sampleLen; ++i) {
-      inputBuffer.set(1, 0, i, sentenceIndices[i]);
+      // Make the one-hot encoding of the seeding sentence.
+      for (let i = 0; i < sampleLen; ++i) {
+        inputBuffer.set(1, 0, i, sentenceIndices[i]);
+      }
+      const input = inputBuffer.toTensor();
+
+      // Call model.predict() to get the probability values of the next
+      // character.
+      const output = model.predict(input);
+
+      // Sample randomly based on the probability values.
+      const winnerIndex = sample(tf.squeeze(output), temperature);
+      const winnerChar = textData.getFromCharSet(winnerIndex);
+      if (onTextGenerationChar != null) {
+        await onTextGenerationChar(winnerChar);
+      }
+
+      generated += winnerChar;
+      sentenceIndices = sentenceIndices.slice(1);
+      sentenceIndices.push(winnerIndex);
+
+      // Memory cleanups.
+      input.dispose();
+      output.dispose();
     }
-    const input = inputBuffer.toTensor();
-
-    // Call model.predict() to get the probability values of the next
-    // character.
-    const output = model.predict(input);
-
-    // Sample randomly based on the probability values.
-    const winnerIndex = sample(tf.squeeze(output), temperature);
-    const winnerChar = textData.getFromCharSet(winnerIndex);
-    if (onTextGenerationChar != null) {
-      await onTextGenerationChar(winnerChar);
-    }
-
-    generated += winnerChar;
-    sentenceIndices = sentenceIndices.slice(1);
-    sentenceIndices.push(winnerIndex);
-
-    // Memory cleanups.
-    input.dispose();
-    output.dispose();
+    return generated;
   }
-  return generated;
-}
 
-  return 
-  
+  return
+
   console.log(r)
   var model = models[curModelType]
   // await models[curModelType].predict(strokeTensor);
@@ -141,11 +143,11 @@ async function loadModels(modelType) {
 
   // Get a seed text from the text data object.
   const [seed, seedIndices] = textData.getRandomSlice();
-  
+
   console.log(`Seed text:\n"${seed}"\n`);
 
   const generated = await generateText(
-      model, textData, seedIndices, args.genLength, args.temperature);
+    model, textData, seedIndices, args.genLength, args.temperature);
 
   console.log(`Generated text:\n"${generated}"\n`);
   return true;

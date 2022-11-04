@@ -5,5 +5,6 @@
     "mp-form": "weui-miniprogram/form/form",
     "mp-actionSheet": "weui-miniprogram/actionsheet/actionsheet",
     "mp-toptips": "weui-miniprogram/toptips/toptips"
-  }
+  },
+  "disableScroll":true
 }

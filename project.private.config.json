@@ -3,7 +3,7 @@
   "projectname": "miniprogram-4",
   "setting": {
     "compileHotReLoad": true,
-    "urlCheck": false
+    "urlCheck": true
   },
   "condition": {
     "miniprogram": {

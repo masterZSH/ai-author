@@ -1,10 +1,15 @@
-<view class="page" data-weui-theme="{{theme}}">
-   
+
+
+<page-meta root-font-size="system"/>
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+    <view class="page__hd">
+        <view class="page__title">模拟作家列表</view>
+    </view>
     <view class="page__bd">
-        <view class="weui-btn-area h-center">
-            <!-- <button class="weui-btn" type="default" bindtap="open">原生 ActionSheet</button> -->
-            <button class="weui-btn" type="default" bindtap="jumpLx">鲁迅</button>
+        <view class="weui-btn-area">
+            <view aria-role="button" class="weui-btn weui-btn_default" bindtap="jumpLx">鲁迅</view>
         </view>
     </view>
-    
 </view>
+
+

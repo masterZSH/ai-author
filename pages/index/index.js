@@ -2,59 +2,52 @@
 
 const app = getApp();
 
-const author = require('../../utils/author.js');
-const fetchWechat = require('fetch-wechat');
-const tf = require('@tensorflow/tfjs-core');
-const cpu = require('@tensorflow/tfjs-backend-cpu');
-const webgl = require('@tensorflow/tfjs-backend-webgl');
-const plugin = requirePlugin('tfjsPlugin');
-
-
-
-
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-
+    showActionsheet: false,
+    groups: [{
+        text: '示例菜单',
+        value: 1
+      },
+      {
+        text: '示例菜单',
+        value: 2
+      },
+      {
+        text: '负向菜单',
+        type: 'warn',
+        value: 3
+      }
+    ]
+  },
+  close: function () {
+    this.setData({
+      showActionsheet: false
+    })
+  },
+  jumpLx(e) {
+    wx.navigateTo({
+      url: '../lx/index',
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showShareMenu({
-      withShareTicket: true
-    });
 
-    plugin.configPlugin({
-      // polyfill fetch function
-      fetchFunc: fetchWechat.fetchFunc(),
-      // inject tfjs runtime
-      tf,
-      // inject backend
-      webgl,
-      // provide webgl canvas
-      canvas: wx.createOffscreenCanvas()
-    });
+
   },
 
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.context = wx.createCanvasContext("firstCanvas");
-    this.init();
 
-    wx.showLoading({
-      title: '加载模型...',
-      mask: true,
-    });
-    author.loadModels('lx').then((res) => {
-      wx.hideLoading();
-      
-    });
   },
 
   /**
@@ -97,30 +90,15 @@ Page({
 
   },
 
-  modelChange: async function (e) {
-    this.setData({
-      status: '正在努力加载模型ᕙ༼ ͝°益° ༽ᕗ'
-    });
-
-    console.log(e.detail.value);
-    wx.showLoading({
-      title: '加载模型...',
-      mask: true,
-    });
-    await autoPainter.loadModels(e.detail.value).then((res) => {
-      wx.hideLoading();
-
-    });
-  },
 
   /*---------------------end of 界面绑定的函数------------------------------------------ */
 
   // 初始化
   init: function () {
-   
+
   },
 
-  
+
 
 
 

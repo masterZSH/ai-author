@@ -27,6 +27,65 @@ let models = {
 };
 let curModelType = 'lx'; // 当前模型类型
 
+function requestFunc(url, data, method = 'GET', dataType = 'json', responseType = 'text', header, abortTime = 5) {
+  wx.showLoading({
+      title: '',
+  });
+  return new Promise(function (resolve, reject) {
+      // let defaultHeader = {
+      //     'content-type': 'application/json',
+      // };
+      // header = Object.assign(defaultHeader, header);
+      let requestObject = {
+          url: url || '',
+          data: data || {},
+          header: {},
+          method: method ,
+          // dataType: 'json',
+          success: success,
+          fail: fail,
+          complete: complete,
+      };
+
+      /**
+       * 成功方法
+       * @param {Object} res -参数
+       * @returns {undefined} -
+       */
+      function success(res) {
+          resolve(res);
+      }
+
+      /**
+       * 失败方法
+       * @param {Error} err -错误
+       * @returns {undefined} -
+       */
+      function fail(err) {
+          wx.showToast({
+              title: '网络异常，请稍后重试',
+              icon: 'none',
+              duration: 2000,
+          });
+          reject(err);
+      }
+
+      /**
+       * 完成方法
+       * @returns {undefined} -
+       */
+      function complete() {
+          wx.hideLoading();
+      }
+      let requestTask = wx.request(requestObject);
+      // 超时中断
+      setTimeout(function () {
+          requestTask && requestTask.abort();
+          reject('请求超时');
+      }, Number.parseInt(abortTime, 10) * 1000);
+  });
+}
+
 
 /**
  * 数组转成tensor
@@ -66,91 +125,125 @@ async function loadModels(modelType) {
     return false;
   }
 
+  var dat = await requestFunc("https://aidraw-6gmdpk1q1d0cf4c4-1312936391.tcloudbaseapp.com/lx-model/lx")
+    console.log(dat)
+    var model = models[curModelType]
+    // await models[curModelType].predict(strokeTensor);
+         var sampleLen = model.inputs[0].shape[1];
 
-  var r = wx.request({
-    url: "https://aidraw-6gmdpk1q1d0cf4c4-1312936391.tcloudbaseapp.com/lx-model/lx",
-    success: async function (e) {
-      console.log(r)
-      var model = models[curModelType]
-      // await models[curModelType].predict(strokeTensor);
-      const sampleLen = model.inputs[0].shape[1];
+      var textData = new data.TextData('text-data', dat.data, sampleLen, 3);
 
-      const textData = new data.TextData('text-data', e.data, sampleLen, 3);
+    return {
+      "model":model,
+      "text":textData
+    } 
+//   var r = wx.request({
+//     url: "https://aidraw-6gmdpk1q1d0cf4c4-1312936391.tcloudbaseapp.com/lx-model/lx",
+//     success: async function (e) {
+//       console.log(r)
+//       var model = models[curModelType]
+//       // await models[curModelType].predict(strokeTensor);
+//       var sampleLen = model.inputs[0].shape[1];
 
-      // Get a seed text from the text data object.
-      const [seed, seedIndices] = textData.getRandomSlice();
+//       var textData = new data.TextData('text-data', e.data, sampleLen, 3);
 
-      console.log(`Seed text:\n"${seed}"\n`);
+//       // Get a seed text from the text data object.
+//       const [seed, seedIndices] = textData.getRandomSlice();
 
-      const generated = await generateText(
-        model, textData, seedIndices, 250, 0.6);
+//       var seedSentence = "已开启代码文件保存后自动热重载"
+//   seedSentence = seedSentence.slice(
+//     seedSentence.length - textData.sampleLen(), seedSentence.length);
+// var seedSentenceIndices = textData.textToIndices(seedSentence);
 
 
-      console.log(`Generated text:\n"${generated}"\n`);
-    }
-  })
-  async function generateText(
-    model, textData, sentenceIndices, length, temperature,
-    onTextGenerationChar) {
-    const sampleLen = model.inputs[0].shape[1];
-    const charSetSize = model.inputs[0].shape[2];
+//       console.log(`Seed text:\n"${seedSentence}"\n`);
+//       console.log(`Seed seedIndices:\n"${seedSentenceIndices}"\n`);
 
-    // Avoid overwriting the original input.
-    sentenceIndices = sentenceIndices.slice();
+//       const generated = await generateText(
+//         model, textData, seedSentenceIndices, 250, 0.6);
 
-    let generated = '';
-    while (generated.length < length) {
-      // Encode the current input sequence as a one-hot Tensor.
-      const inputBuffer =
-        new tf.TensorBuffer([1, sampleLen, charSetSize]);
 
-      // Make the one-hot encoding of the seeding sentence.
-      for (let i = 0; i < sampleLen; ++i) {
-        inputBuffer.set(1, 0, i, sentenceIndices[i]);
-      }
-      const input = inputBuffer.toTensor();
+//       console.log(`Generated text:\n"${generated}"\n`);
+//     }
+//   })
 
-      // Call model.predict() to get the probability values of the next
-      // character.
-      const output = model.predict(input);
 
-      // Sample randomly based on the probability values.
-      const winnerIndex = sample(tf.squeeze(output), temperature);
-      const winnerChar = textData.getFromCharSet(winnerIndex);
-      if (onTextGenerationChar != null) {
-        await onTextGenerationChar(winnerChar);
-      }
 
-      generated += winnerChar;
-      sentenceIndices = sentenceIndices.slice(1);
-      sentenceIndices.push(winnerIndex);
 
-      // Memory cleanups.
-      input.dispose();
-      output.dispose();
-    }
-    return generated;
-  }
+  
 
-  return
+//   return r
 
-  console.log(r)
-  var model = models[curModelType]
-  // await models[curModelType].predict(strokeTensor);
-  const sampleLen = model.inputs[0].shape[1];
+//   console.log(r)
+//   var model = models[curModelType]
+//   // await models[curModelType].predict(strokeTensor);
+//   var sampleLen = model.inputs[0].shape[1];
 
-  const textData = new data.TextData('text-data', txt.Txt, sampleLen, args.sampleStep);
+//   var textData = new data.TextData('text-data', txt.Txt, sampleLen, args.sampleStep);
+
+//   // Get a seed text from the text data object.
+//   const [seed, seedIndices] = textData.getRandomSlice();
+
+//   console.log(`Seed text:\n"${seed}"\n`);
+
+//   const generated = await generateText(
+//     model, textData, seedIndices, args.genLength, args.temperature);
+
+//   console.log(`Generated text:\n"${generated}"\n`);
+//   return true;
+}
+
+function randText(model,data){
+  var sampleLen = model.inputs[0].shape[1];
+
+  var textData = new data.TextData('text-data', data, sampleLen, 3);
 
   // Get a seed text from the text data object.
-  const [seed, seedIndices] = textData.getRandomSlice();
+  var [seed, seedIndices] = textData.getRandomSlice();
+  return seed,seedIndices
+}
 
-  console.log(`Seed text:\n"${seed}"\n`);
+async function generateText(
+  model, textData, sentenceIndices, length, temperature,
+  onTextGenerationChar) {
+  const sampleLen = model.inputs[0].shape[1];
+  const charSetSize = model.inputs[0].shape[2];
 
-  const generated = await generateText(
-    model, textData, seedIndices, args.genLength, args.temperature);
+  // Avoid overwriting the original input.
+  sentenceIndices = sentenceIndices.slice();
 
-  console.log(`Generated text:\n"${generated}"\n`);
-  return true;
+  let generated = '';
+  while (generated.length < length) {
+    // Encode the current input sequence as a one-hot Tensor.
+    const inputBuffer =
+      new tf.TensorBuffer([1, sampleLen, charSetSize]);
+
+    // Make the one-hot encoding of the seeding sentence.
+    for (let i = 0; i < sampleLen; ++i) {
+      inputBuffer.set(1, 0, i, sentenceIndices[i]);
+    }
+    const input = inputBuffer.toTensor();
+
+    // Call model.predict() to get the probability values of the next
+    // character.
+    const output = model.predict(input);
+
+    // Sample randomly based on the probability values.
+    const winnerIndex = sample(tf.squeeze(output), temperature);
+    const winnerChar = textData.getFromCharSet(winnerIndex);
+    if (onTextGenerationChar != null) {
+      await onTextGenerationChar(winnerChar);
+    }
+
+    generated += winnerChar;
+    sentenceIndices = sentenceIndices.slice(1);
+    sentenceIndices.push(winnerIndex);
+
+    // Memory cleanups.
+    input.dispose();
+    output.dispose();
+  }
+  return generated;
 }
 
 function sample(probs, temperature) {
@@ -164,56 +257,12 @@ function sample(probs, temperature) {
 }
 
 
-/**
- * 根据当前起始笔画预测并生成后续笔画
- * @param {Array} beginStroke 起始笔画
- * @returns 二维数组代表预测的后续笔画
- */
-async function generate(beginStroke) {
-  if (models[curModelType] === null) {
-    console.log("Model unloaded.!");
-    return null;
-  }
 
-  // The initial inks len.
-  const initialLen = beginStroke.length;
-  console.log("The initial inks len: " + initialLen);
-  // Enter the initial inks.
-  models[curModelType].resetStates();
-  let strokeTensor = await tensorPreprocess(beginStroke);
-  let predTf = await models[curModelType].predict(strokeTensor);
-  let pred = await predTf.dataSync();
-  predTf.dispose();
-  // Find the last ink.
-  const index = (initialLen - 1) * 4;
-  let pred_ = [pred[index], pred[index + 1], pred[index + 2], pred[index + 3]];
-  // Save the new ink.
-  beginStroke.push(pred_);
-  // Pred the left inks.
-  let inp = null;
-  do {
-    // Use the last ink as input.
-    inp = [beginStroke[beginStroke.length - 1]];
-    // Enter the initial inks.
-    let inpTensor = await tensorPreprocess(inp);
-    predTf = await models[curModelType].predict(inpTensor);
-    pred = await predTf.dataSync();
-    predTf.dispose();
-    // Find he last ink.
-    pred_ = [pred[0], pred[1], pred[2] >= 0.5 ? 1.0 : 0.0, pred[3] >= 0.5 ? 1.0 : 0.0];
-    // Save the new ink.
-    beginStroke.push(pred_);
-  } while (pred[3] < 0.5 && beginStroke.length <= MAX_LEN[curModelType] - initialLen);
-  // console.log(beginStroke);
-  // Pop the initial inks.
-  let followStroke = beginStroke.splice(initialLen, beginStroke.length - initialLen);
-
-  return followStroke;
-}
 
 let autoPainter = {
   loadModels: loadModels,
-  generate: generate,
+  generateText: generateText,
+
 };
 
 module.exports = autoPainter;

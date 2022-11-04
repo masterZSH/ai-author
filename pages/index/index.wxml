@@ -1,2 +1,10 @@
-<view class="container"></view>
-<mp-loading show="true"></mp-loading>
+<view class="page" data-weui-theme="{{theme}}">
+   
+    <view class="page__bd">
+        <view class="weui-btn-area h-center">
+            <!-- <button class="weui-btn" type="default" bindtap="open">原生 ActionSheet</button> -->
+            <button class="weui-btn" type="default" bindtap="jumpLx">鲁迅</button>
+        </view>
+    </view>
+    
+</view>

@@ -1,7 +1,9 @@
 {
+  "navigationBarTitleText": "AI写作大师",
   "usingComponents": {
     "mp-loading": "weui-miniprogram/loading/loading",
-    "mp-form": "weui-miniprogram/form/form"
-
+    "mp-form": "weui-miniprogram/form/form",
+    "mp-actionSheet": "weui-miniprogram/actionsheet/actionsheet",
+    "mp-toptips": "weui-miniprogram/toptips/toptips"
   }
 }

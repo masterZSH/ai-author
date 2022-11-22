@@ -1,5 +1,5 @@
 <page-meta root-font-size="system"/>
-<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+<view class="page" bindtap="handleTap" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
 	<view class="weui-form">
 		<!-- <view class="weui-form__text-area">
 		
@@ -23,8 +23,8 @@
         <view class="weui-cells weui-cells_form">
             <view class="weui-cell" hover-class="weui-cell_active">
                 <view class="weui-cell__bd">
-                    <textarea disabled="" model:value="{{generatedText}}" class="weui-textarea" placeholder="生成文本" placeholder-class="weui-input__placeholder" rows="3"></textarea>
-                    <view aria-role="option" class="weui-textarea-counter"><span>{{generatedText.length}}</span>/200</view>
+                    <textarea maxlength="250" disabled="true" model:value="{{generatedText}}" class="weui-textarea" placeholder="生成文本" placeholder-class="weui-input__placeholder" rows="3"></textarea>
+                    <view aria-role="option" class="weui-textarea-counter"><span>{{generatedText.length}}</span>/250</view>
                 </view>
             </view>
         </view>

@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {}, _tempexport
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = __MODS__[modId].m; m._exports = m._tempexports; var desp = Object.getOwnPropertyDescriptor(m, "exports"); if (desp && desp.configurable) Object.defineProperty(m, "exports", { set: function (val) { if(typeof val === "object" && val !== m._exports) { m._exports.__proto__ = val.__proto__; Object.keys(val).forEach(function (k) { m._exports[k] = val[k]; }); } m._tempexports = val }, get: function () { return m._tempexports; } }); __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1666261108225, function(require, module, exports) {
+__DEFINE__(1669106092942, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -25,8 +25,8 @@ var __TEMP__ = require('./kernels/all_kernels');
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });var __TEMP__ = require('./backend_wasm');Object.defineProperty(exports, 'BackendWasm', { enumerable: true, configurable: true, get: function() { return __TEMP__.BackendWasm; } });Object.defineProperty(exports, 'setWasmPath', { enumerable: true, configurable: true, get: function() { return __TEMP__.setWasmPath; } });
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });var __TEMP__ = require('./version');Object.defineProperty(exports, 'version_wasm', { enumerable: true, configurable: true, get: function() { return __TEMP__.version; } });
 //# sourceMappingURL=index.js.map
-}, function(modId) {var map = {"./kernels/all_kernels":1666261108226,"./backend_wasm":1666261108293,"./version":1666261108295}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108226, function(require, module, exports) {
+}, function(modId) {var map = {"./kernels/all_kernels":1669106092943,"./backend_wasm":1669106093010,"./version":1669106093012}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092943, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -109,8 +109,8 @@ var __TEMP__ = require('./Transpose');
 var __TEMP__ = require('./Unpack');
 var __TEMP__ = require('./ZerosLike');
 //# sourceMappingURL=all_kernels.js.map
-}, function(modId) { var map = {"./_FusedMatMul":1666261108227,"./Abs":1666261108229,"./Add":1666261108231,"./AddN":1666261108233,"./ArgMax":1666261108234,"./AvgPool":1666261108235,"./BatchMatMul":1666261108236,"./Cast":1666261108237,"./ClipByValue":1666261108238,"./Concat":1666261108239,"./Conv2D":1666261108240,"./Cos":1666261108241,"./CropAndResize":1666261108242,"./DepthwiseConv2dNative":1666261108243,"./Div":1666261108244,"./Exp":1666261108245,"./FloorDiv":1666261108246,"./FusedBatchNorm":1666261108247,"./FusedConv2D":1666261108248,"./FusedDepthwiseConv2D":1666261108249,"./Gather":1666261108250,"./GatherNd":1666261108251,"./Greater":1666261108252,"./GreaterEqual":1666261108253,"./Less":1666261108254,"./LessEqual":1666261108255,"./Log":1666261108256,"./LogicalAnd":1666261108257,"./Max":1666261108258,"./Maximum":1666261108259,"./MaxPool":1666261108260,"./Min":1666261108261,"./Minimum":1666261108262,"./Mul":1666261108263,"./Neg":1666261108264,"./NonMaxSuppressionV3":1666261108265,"./NonMaxSuppressionV5":1666261108267,"./NotEqual":1666261108268,"./OnesLike":1666261108269,"./PadV2":1666261108270,"./Pow":1666261108271,"./Prelu":1666261108272,"./Relu":1666261108273,"./Relu6":1666261108274,"./Reshape":1666261108275,"./ResizeBilinear":1666261108276,"./Rsqrt":1666261108277,"./ScatterNd":1666261108278,"./Sigmoid":1666261108279,"./Sin":1666261108280,"./Slice":1666261108281,"./Softmax":1666261108282,"./Split":1666261108283,"./Sqrt":1666261108284,"./Square":1666261108285,"./Sub":1666261108286,"./Sum":1666261108287,"./Tanh":1666261108288,"./Tile":1666261108289,"./Transpose":1666261108290,"./Unpack":1666261108291,"./ZerosLike":1666261108292}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108227, function(require, module, exports) {
+}, function(modId) { var map = {"./_FusedMatMul":1669106092944,"./Abs":1669106092946,"./Add":1669106092948,"./AddN":1669106092950,"./ArgMax":1669106092951,"./AvgPool":1669106092952,"./BatchMatMul":1669106092953,"./Cast":1669106092954,"./ClipByValue":1669106092955,"./Concat":1669106092956,"./Conv2D":1669106092957,"./Cos":1669106092958,"./CropAndResize":1669106092959,"./DepthwiseConv2dNative":1669106092960,"./Div":1669106092961,"./Exp":1669106092962,"./FloorDiv":1669106092963,"./FusedBatchNorm":1669106092964,"./FusedConv2D":1669106092965,"./FusedDepthwiseConv2D":1669106092966,"./Gather":1669106092967,"./GatherNd":1669106092968,"./Greater":1669106092969,"./GreaterEqual":1669106092970,"./Less":1669106092971,"./LessEqual":1669106092972,"./Log":1669106092973,"./LogicalAnd":1669106092974,"./Max":1669106092975,"./Maximum":1669106092976,"./MaxPool":1669106092977,"./Min":1669106092978,"./Minimum":1669106092979,"./Mul":1669106092980,"./Neg":1669106092981,"./NonMaxSuppressionV3":1669106092982,"./NonMaxSuppressionV5":1669106092984,"./NotEqual":1669106092985,"./OnesLike":1669106092986,"./PadV2":1669106092987,"./Pow":1669106092988,"./Prelu":1669106092989,"./Relu":1669106092990,"./Relu6":1669106092991,"./Reshape":1669106092992,"./ResizeBilinear":1669106092993,"./Rsqrt":1669106092994,"./ScatterNd":1669106092995,"./Sigmoid":1669106092996,"./Sin":1669106092997,"./Slice":1669106092998,"./Softmax":1669106092999,"./Split":1669106093000,"./Sqrt":1669106093001,"./Square":1669106093002,"./Sub":1669106093003,"./Sum":1669106093004,"./Tanh":1669106093005,"./Tile":1669106093006,"./Transpose":1669106093007,"./Unpack":1669106093008,"./ZerosLike":1669106093009}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092944, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -189,8 +189,8 @@ registerKernel({
     kernelFunc: fusedBatchMatMul
 });
 //# sourceMappingURL=_FusedMatMul.js.map
-}, function(modId) { var map = {"./types":1666261108228}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108228, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1669106092945}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092945, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -226,7 +226,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 })(FusableActivation || (FusableActivation = {}));
 //# sourceMappingURL=types.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108229, function(require, module, exports) {
+__DEFINE__(1669106092946, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -246,8 +246,8 @@ __DEFINE__(1666261108229, function(require, module, exports) {
 var __TEMP__ = require('./unary_kernel');var registerUnaryKernel = __TEMP__['registerUnaryKernel'];
 registerUnaryKernel('Abs');
 //# sourceMappingURL=Abs.js.map
-}, function(modId) { var map = {"./unary_kernel":1666261108230}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108230, function(require, module, exports) {
+}, function(modId) { var map = {"./unary_kernel":1669106092947}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092947, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -287,7 +287,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.registerUnaryKernel = registerUnaryKernel
 //# sourceMappingURL=unary_kernel.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108231, function(require, module, exports) {
+__DEFINE__(1669106092948, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -308,8 +308,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = true;
 registerBinaryKernel('Add', supportsFullBroadcast);
 //# sourceMappingURL=Add.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108232, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092949, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -378,8 +378,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
     registerKernel({ kernelName, backendName: 'wasm', setupFunc, kernelFunc });
 };exports.registerBinaryKernel = registerBinaryKernel
 //# sourceMappingURL=binary_kernel.js.map
-}, function(modId) { var map = {"./types":1666261108228}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108233, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1669106092945}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092950, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -427,8 +427,8 @@ registerKernel({
     kernelFunc: addn,
 });
 //# sourceMappingURL=AddN.js.map
-}, function(modId) { var map = {"./types":1666261108228}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108234, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1669106092945}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092951, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -475,8 +475,8 @@ registerKernel({
     setupFunc: setup
 });
 //# sourceMappingURL=ArgMax.js.map
-}, function(modId) { var map = {"./types":1666261108228}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108235, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1669106092945}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092952, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -548,7 +548,7 @@ registerKernel({
 });
 //# sourceMappingURL=AvgPool.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108236, function(require, module, exports) {
+__DEFINE__(1669106092953, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -607,7 +607,7 @@ registerKernel({
 });
 //# sourceMappingURL=BatchMatMul.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108237, function(require, module, exports) {
+__DEFINE__(1669106092954, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -640,7 +640,7 @@ registerKernel({
 });
 //# sourceMappingURL=Cast.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108238, function(require, module, exports) {
+__DEFINE__(1669106092955, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google LLC. All Rights Reserved.
@@ -685,7 +685,7 @@ registerKernel({
 });
 //# sourceMappingURL=ClipByValue.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108239, function(require, module, exports) {
+__DEFINE__(1669106092956, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -735,7 +735,7 @@ registerKernel({
 });
 //# sourceMappingURL=Concat.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108240, function(require, module, exports) {
+__DEFINE__(1669106092957, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -815,7 +815,7 @@ registerKernel({
 });
 //# sourceMappingURL=Conv2D.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108241, function(require, module, exports) {
+__DEFINE__(1669106092958, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -835,8 +835,8 @@ __DEFINE__(1666261108241, function(require, module, exports) {
 var __TEMP__ = require('./unary_kernel');var registerUnaryKernel = __TEMP__['registerUnaryKernel'];
 registerUnaryKernel('Cos');
 //# sourceMappingURL=Cos.js.map
-}, function(modId) { var map = {"./unary_kernel":1666261108230}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108242, function(require, module, exports) {
+}, function(modId) { var map = {"./unary_kernel":1669106092947}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092959, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -909,8 +909,8 @@ registerKernel({
     kernelFunc: cropAndResize
 });
 //# sourceMappingURL=CropAndResize.js.map
-}, function(modId) { var map = {"./Cast":1666261108237}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108243, function(require, module, exports) {
+}, function(modId) { var map = {"./Cast":1669106092954}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092960, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -991,7 +991,7 @@ registerKernel({
 });
 //# sourceMappingURL=DepthwiseConv2dNative.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108244, function(require, module, exports) {
+__DEFINE__(1669106092961, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1012,8 +1012,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = false;
 registerBinaryKernel('Div', supportsFullBroadcast);
 //# sourceMappingURL=Div.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108245, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092962, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1033,8 +1033,8 @@ __DEFINE__(1666261108245, function(require, module, exports) {
 var __TEMP__ = require('./unary_kernel');var registerUnaryKernel = __TEMP__['registerUnaryKernel'];
 registerUnaryKernel('Exp');
 //# sourceMappingURL=Exp.js.map
-}, function(modId) { var map = {"./unary_kernel":1666261108230}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108246, function(require, module, exports) {
+}, function(modId) { var map = {"./unary_kernel":1669106092947}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092963, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1055,8 +1055,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = false;
 registerBinaryKernel('FloorDiv', supportsFullBroadcast);
 //# sourceMappingURL=FloorDiv.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108247, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092964, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1104,7 +1104,7 @@ registerKernel({
 });
 //# sourceMappingURL=FusedBatchNorm.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108248, function(require, module, exports) {
+__DEFINE__(1669106092965, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1209,8 +1209,8 @@ registerKernel({
     kernelFunc: fusedConv2d
 });
 //# sourceMappingURL=FusedConv2D.js.map
-}, function(modId) { var map = {"./types":1666261108228}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108249, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1669106092945}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092966, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1316,8 +1316,8 @@ registerKernel({
     kernelFunc: fusedDepthwiseConv2d
 });
 //# sourceMappingURL=FusedDepthwiseConv2D.js.map
-}, function(modId) { var map = {"./types":1666261108228}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108250, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1669106092945}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092967, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1377,8 +1377,8 @@ registerKernel({
     kernelFunc: gather
 });
 //# sourceMappingURL=Gather.js.map
-}, function(modId) { var map = {"./types":1666261108228}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108251, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1669106092945}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092968, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1436,8 +1436,8 @@ registerKernel({
     kernelFunc: gatherNd
 });
 //# sourceMappingURL=GatherNd.js.map
-}, function(modId) { var map = {"./types":1666261108228}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108252, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1669106092945}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092969, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1458,8 +1458,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = false;
 registerBinaryKernel('Greater', supportsFullBroadcast, 'bool');
 //# sourceMappingURL=Greater.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108253, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092970, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1480,8 +1480,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = false;
 registerBinaryKernel('GreaterEqual', supportsFullBroadcast, 'bool');
 //# sourceMappingURL=GreaterEqual.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108254, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092971, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1502,8 +1502,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = false;
 registerBinaryKernel('Less', supportsFullBroadcast, 'bool');
 //# sourceMappingURL=Less.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108255, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092972, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1524,8 +1524,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = false;
 registerBinaryKernel('LessEqual', supportsFullBroadcast, 'bool');
 //# sourceMappingURL=LessEqual.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108256, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092973, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1545,8 +1545,8 @@ __DEFINE__(1666261108256, function(require, module, exports) {
 var __TEMP__ = require('./unary_kernel');var registerUnaryKernel = __TEMP__['registerUnaryKernel'];
 registerUnaryKernel('Log');
 //# sourceMappingURL=Log.js.map
-}, function(modId) { var map = {"./unary_kernel":1666261108230}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108257, function(require, module, exports) {
+}, function(modId) { var map = {"./unary_kernel":1669106092947}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092974, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1567,8 +1567,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = false;
 registerBinaryKernel('LogicalAnd', supportsFullBroadcast, 'bool');
 //# sourceMappingURL=LogicalAnd.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108258, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092975, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1612,7 +1612,7 @@ function max(args) {
 registerKernel({ kernelName: Max, backendName: 'wasm', setupFunc: setup, kernelFunc: max });
 //# sourceMappingURL=Max.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108259, function(require, module, exports) {
+__DEFINE__(1669106092976, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1633,8 +1633,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = false;
 registerBinaryKernel('Maximum', supportsFullBroadcast);
 //# sourceMappingURL=Maximum.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108260, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092977, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1708,7 +1708,7 @@ registerKernel({
 });
 //# sourceMappingURL=MaxPool.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108261, function(require, module, exports) {
+__DEFINE__(1669106092978, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1755,7 +1755,7 @@ registerKernel({
 });
 //# sourceMappingURL=Min.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108262, function(require, module, exports) {
+__DEFINE__(1669106092979, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1776,8 +1776,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = false;
 registerBinaryKernel('Minimum', supportsFullBroadcast);
 //# sourceMappingURL=Minimum.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108263, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092980, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1798,8 +1798,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = true;
 registerBinaryKernel('Mul', supportsFullBroadcast);
 //# sourceMappingURL=Mul.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108264, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092981, function(require, module, exports) {
 /**
  * @license
  * Copyright 2020 Google LLC. All Rights Reserved.
@@ -1819,8 +1819,8 @@ __DEFINE__(1666261108264, function(require, module, exports) {
 var __TEMP__ = require('./unary_kernel');var registerUnaryKernel = __TEMP__['registerUnaryKernel'];
 registerUnaryKernel('Neg');
 //# sourceMappingURL=Neg.js.map
-}, function(modId) { var map = {"./unary_kernel":1666261108230}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108265, function(require, module, exports) {
+}, function(modId) { var map = {"./unary_kernel":1669106092947}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092982, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1870,8 +1870,8 @@ registerKernel({
     kernelFunc,
 });
 //# sourceMappingURL=NonMaxSuppressionV3.js.map
-}, function(modId) { var map = {"./NonMaxSuppression_util":1666261108266}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108266, function(require, module, exports) {
+}, function(modId) { var map = {"./NonMaxSuppression_util":1669106092983}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092983, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1903,7 +1903,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.parseResultStruct = parseResultStruct
 //# sourceMappingURL=NonMaxSuppression_util.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108267, function(require, module, exports) {
+__DEFINE__(1669106092984, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -1953,8 +1953,8 @@ registerKernel({
     kernelFunc,
 });
 //# sourceMappingURL=NonMaxSuppressionV5.js.map
-}, function(modId) { var map = {"./NonMaxSuppression_util":1666261108266}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108268, function(require, module, exports) {
+}, function(modId) { var map = {"./NonMaxSuppression_util":1669106092983}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092985, function(require, module, exports) {
 /**
  * @license
  * Copyright 2020 Google LLC. All Rights Reserved.
@@ -1975,8 +1975,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = false;
 registerBinaryKernel('NotEqual', supportsFullBroadcast, 'bool');
 //# sourceMappingURL=NotEqual.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108269, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092986, function(require, module, exports) {
 /**
  * @license
  * Copyright 2020 Google Inc. All Rights Reserved.
@@ -2008,7 +2008,7 @@ registerKernel({
 });
 //# sourceMappingURL=OnesLike.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108270, function(require, module, exports) {
+__DEFINE__(1669106092987, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2058,8 +2058,8 @@ registerKernel({
     setupFunc: setup
 });
 //# sourceMappingURL=PadV2.js.map
-}, function(modId) { var map = {"./types":1666261108228}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108271, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1669106092945}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092988, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2080,8 +2080,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = false;
 registerBinaryKernel('Pow', supportsFullBroadcast);
 //# sourceMappingURL=Pow.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108272, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092989, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2125,7 +2125,7 @@ registerKernel({
 });
 //# sourceMappingURL=Prelu.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108273, function(require, module, exports) {
+__DEFINE__(1669106092990, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2145,8 +2145,8 @@ __DEFINE__(1666261108273, function(require, module, exports) {
 var __TEMP__ = require('./unary_kernel');var registerUnaryKernel = __TEMP__['registerUnaryKernel'];
 registerUnaryKernel('Relu');
 //# sourceMappingURL=Relu.js.map
-}, function(modId) { var map = {"./unary_kernel":1666261108230}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108274, function(require, module, exports) {
+}, function(modId) { var map = {"./unary_kernel":1669106092947}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092991, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2166,8 +2166,8 @@ __DEFINE__(1666261108274, function(require, module, exports) {
 var __TEMP__ = require('./unary_kernel');var registerUnaryKernel = __TEMP__['registerUnaryKernel'];
 registerUnaryKernel('Relu6');
 //# sourceMappingURL=Relu6.js.map
-}, function(modId) { var map = {"./unary_kernel":1666261108230}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108275, function(require, module, exports) {
+}, function(modId) { var map = {"./unary_kernel":1669106092947}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092992, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2196,7 +2196,7 @@ registerKernel({
 });
 //# sourceMappingURL=Reshape.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108276, function(require, module, exports) {
+__DEFINE__(1669106092993, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2260,8 +2260,8 @@ registerKernel({
     kernelFunc: resizeBilinear
 });
 //# sourceMappingURL=ResizeBilinear.js.map
-}, function(modId) { var map = {"./Cast":1666261108237}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108277, function(require, module, exports) {
+}, function(modId) { var map = {"./Cast":1669106092954}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092994, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2281,8 +2281,8 @@ __DEFINE__(1666261108277, function(require, module, exports) {
 var __TEMP__ = require('./unary_kernel');var registerUnaryKernel = __TEMP__['registerUnaryKernel'];
 registerUnaryKernel('Rsqrt');
 //# sourceMappingURL=Rsqrt.js.map
-}, function(modId) { var map = {"./unary_kernel":1666261108230}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108278, function(require, module, exports) {
+}, function(modId) { var map = {"./unary_kernel":1669106092947}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092995, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2340,8 +2340,8 @@ registerKernel({
     kernelFunc: scatterNd
 });
 //# sourceMappingURL=ScatterNd.js.map
-}, function(modId) { var map = {"./types":1666261108228}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108279, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1669106092945}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092996, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2384,7 +2384,7 @@ registerKernel({
 });
 //# sourceMappingURL=Sigmoid.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108280, function(require, module, exports) {
+__DEFINE__(1669106092997, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2404,8 +2404,8 @@ __DEFINE__(1666261108280, function(require, module, exports) {
 var __TEMP__ = require('./unary_kernel');var registerUnaryKernel = __TEMP__['registerUnaryKernel'];
 registerUnaryKernel('Sin');
 //# sourceMappingURL=Sin.js.map
-}, function(modId) { var map = {"./unary_kernel":1666261108230}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108281, function(require, module, exports) {
+}, function(modId) { var map = {"./unary_kernel":1669106092947}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106092998, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2511,7 +2511,7 @@ registerKernel({
 });
 //# sourceMappingURL=Slice.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108282, function(require, module, exports) {
+__DEFINE__(1669106092999, function(require, module, exports) {
 /**
  * @license
  * Copyright 2020 Google LLC. All Rights Reserved.
@@ -2560,7 +2560,7 @@ registerKernel({
 });
 //# sourceMappingURL=Softmax.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108283, function(require, module, exports) {
+__DEFINE__(1669106093000, function(require, module, exports) {
 /**
  * @license
  * Copyright 2020 Google Inc. All Rights Reserved.
@@ -2604,8 +2604,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.split = split
 registerKernel({ kernelName: SplitV, backendName: 'wasm', kernelFunc: split });
 //# sourceMappingURL=Split.js.map
-}, function(modId) { var map = {"./Slice":1666261108281}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108284, function(require, module, exports) {
+}, function(modId) { var map = {"./Slice":1669106092998}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106093001, function(require, module, exports) {
 /**
  * @license
  * Copyright 2020 Google Inc. All Rights Reserved.
@@ -2625,8 +2625,8 @@ __DEFINE__(1666261108284, function(require, module, exports) {
 var __TEMP__ = require('./unary_kernel');var registerUnaryKernel = __TEMP__['registerUnaryKernel'];
 registerUnaryKernel('Sqrt');
 //# sourceMappingURL=Sqrt.js.map
-}, function(modId) { var map = {"./unary_kernel":1666261108230}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108285, function(require, module, exports) {
+}, function(modId) { var map = {"./unary_kernel":1669106092947}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106093002, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2646,8 +2646,8 @@ __DEFINE__(1666261108285, function(require, module, exports) {
 var __TEMP__ = require('./unary_kernel');var registerUnaryKernel = __TEMP__['registerUnaryKernel'];
 registerUnaryKernel('Square');
 //# sourceMappingURL=Square.js.map
-}, function(modId) { var map = {"./unary_kernel":1666261108230}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108286, function(require, module, exports) {
+}, function(modId) { var map = {"./unary_kernel":1669106092947}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106093003, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2668,8 +2668,8 @@ var __TEMP__ = require('./binary_kernel');var registerBinaryKernel = __TEMP__['r
 const supportsFullBroadcast = true;
 registerBinaryKernel('Sub', supportsFullBroadcast);
 //# sourceMappingURL=Sub.js.map
-}, function(modId) { var map = {"./binary_kernel":1666261108232}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108287, function(require, module, exports) {
+}, function(modId) { var map = {"./binary_kernel":1669106092949}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106093004, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2716,7 +2716,7 @@ registerKernel({
 });
 //# sourceMappingURL=Sum.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108288, function(require, module, exports) {
+__DEFINE__(1669106093005, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2736,8 +2736,8 @@ __DEFINE__(1666261108288, function(require, module, exports) {
 var __TEMP__ = require('./unary_kernel');var registerUnaryKernel = __TEMP__['registerUnaryKernel'];
 registerUnaryKernel('Tanh');
 //# sourceMappingURL=Tanh.js.map
-}, function(modId) { var map = {"./unary_kernel":1666261108230}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108289, function(require, module, exports) {
+}, function(modId) { var map = {"./unary_kernel":1669106092947}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106093006, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2790,8 +2790,8 @@ registerKernel({
     kernelFunc: tile
 });
 //# sourceMappingURL=Tile.js.map
-}, function(modId) { var map = {"./types":1666261108228}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108290, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1669106092945}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106093007, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2887,8 +2887,8 @@ registerKernel({
     setupFunc: setup,
 });
 //# sourceMappingURL=Transpose.js.map
-}, function(modId) { var map = {"./types":1666261108228}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108291, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1669106092945}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106093008, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -2934,8 +2934,8 @@ registerKernel({
     kernelFunc: unpack,
 });
 //# sourceMappingURL=Unpack.js.map
-}, function(modId) { var map = {"./Slice":1666261108281}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108292, function(require, module, exports) {
+}, function(modId) { var map = {"./Slice":1669106092998}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106093009, function(require, module, exports) {
 /**
  * @license
  * Copyright 2020 Google Inc. All Rights Reserved.
@@ -2967,7 +2967,7 @@ registerKernel({
 });
 //# sourceMappingURL=ZerosLike.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108293, function(require, module, exports) {
+__DEFINE__(1669106093010, function(require, module, exports) {
 /**
  * @license
  * Copyright 2019 Google Inc. All Rights Reserved.
@@ -3214,8 +3214,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
     initAborted = false;
 };exports.resetWasmPath = resetWasmPath
 //# sourceMappingURL=backend_wasm.js.map
-}, function(modId) { var map = {"../wasm-out/tfjs-backend-wasm.js":1666261108294}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108294, function(require, module, exports) {
+}, function(modId) { var map = {"../wasm-out/tfjs-backend-wasm.js":1669106093011}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1669106093011, function(require, module, exports) {
 
 var WasmBackendModule = (function() {
   var _scriptDir = typeof document !== 'undefined' && document.currentScript ? document.currentScript.src : undefined;
@@ -3238,14 +3238,14 @@ if (typeof exports === 'object' && typeof module === 'object')
       exports["WasmBackendModule"] = WasmBackendModule;
     
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1666261108295, function(require, module, exports) {
+__DEFINE__(1669106093012, function(require, module, exports) {
 /** @license See the LICENSE file. */
 // This code is auto-generated, do not modify this file!
 const version = '2.0.0';
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, 'version', { enumerable: true, configurable: true, get: function() { return version; } });
 //# sourceMappingURL=version.js.map
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1666261108225);
+return __REQUIRE__(1669106092942);
 })()
 //miniprogram-npm-outsideDeps=["@tensorflow/tfjs-core","fs","path"]
 //# sourceMappingURL=index.js.map

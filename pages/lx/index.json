@@ -1,8 +1,8 @@
 {
   "usingComponents": {
     "mp-loading": "weui-miniprogram/loading/loading",
-    "mp-form": "weui-miniprogram/form/form"
-
+    "mp-form": "weui-miniprogram/form/form",
+    "mp-select-text":"@miniprogram-component-plus/select-text"
   },
   "navigationBarTitleText": "AI写作大师-鲁迅"
 }

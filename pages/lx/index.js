@@ -108,8 +108,21 @@ Page({
     var [seed, seedIndices] = dat.getRandomSlice();
     this.setData({
       seedIndices:seedIndices,
-      seedText:seed,
     })
+    var that = this
+
+    var i = 0
+  var len = seed.length
+  var t = setInterval(function e(){
+        if(i>=len){
+            clearInterval(t)
+            return 
+        }
+        that.setData({
+          seedText:seed.substr(0,i+1)
+        })
+        i++
+    },50)
   },
   async generateText(){
    
@@ -132,9 +145,21 @@ let generated = await author.generateText(
    0.6
    );
    wx.hideLoading()
-  this.setData({
-    generatedText:generated
-  })
+   var that = this
+
+   var i = 0
+  var len = generated.length
+  var t = setInterval(function e(){
+        if(i>=len){
+            clearInterval(t)
+            return 
+        }
+        that.setData({
+          generatedText:generated.substr(0,i+1)
+        })
+        i++
+    },50)
+  
   },
 
 
@@ -160,12 +185,8 @@ let generated = await author.generateText(
   init: function () {
    
   },
-
-  
-
-
-
-
-
+  handleTap(e){
+    this.setData({ evt: e })
+  }
 
 })

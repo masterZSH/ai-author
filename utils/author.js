@@ -13,7 +13,7 @@ const data = require('./data')
 
 const MODELS_URL = {
   // 'flower': 'file://images/flower-model.json',
-  'lx': 'https://aidraw-6gmdpk1q1d0cf4c4-1312936391.tcloudbaseapp.com/lx-model/model.json',
+  'lx': 'https://cube123-9gs5oit6f40a9a64-1312906436.tcloudbaseapp.com/lx-model/model.json',
 
 }
 
@@ -125,7 +125,7 @@ async function loadModels(modelType) {
     return false;
   }
 
-  var dat = await requestFunc("https://aidraw-6gmdpk1q1d0cf4c4-1312936391.tcloudbaseapp.com/lx-model/lx")
+  var dat = await requestFunc("https://cube123-9gs5oit6f40a9a64-1312906436.tcloudbaseapp.com/lx-model/lx")
     console.log(dat)
     var model = models[curModelType]
     // await models[curModelType].predict(strokeTensor);

@@ -5,6 +5,7 @@
   "license": "Apache-2.0",
   "devDependencies": {},
   "dependencies": {
+    "@miniprogram-component-plus/select-text": "^1.0.1",
     "@tensorflow/tfjs-backend-cpu": "2.0.1",
     "@tensorflow/tfjs-backend-wasm": "2.0.0",
     "@tensorflow/tfjs-backend-webgl": "2.0.1",

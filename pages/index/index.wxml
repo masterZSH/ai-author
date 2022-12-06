@@ -6,9 +6,21 @@
         <view class="page__title">模拟作家列表</view>
     </view>
     <view class="page__bd">
-        <view class="weui-btn-area">
+
+      <view wx:for-index="idx" wx:for="{{author}}" class="weui-btn-area">
+            <view id="{{idx}}" wx:key="*this" aria-role="button" class="weui-btn weui-btn_default" bindtap="jump">{{item.name}}</view>
+        </view>
+
+
+
+
+        <!-- <view class="weui-btn-area">
             <view aria-role="button" class="weui-btn weui-btn_default" bindtap="jumpLx">鲁迅</view>
         </view>
+
+        <view class="weui-btn-area">
+            <view aria-role="button" class="weui-btn weui-btn_default" bindtap="jumpSsby">莎士比亚</view>
+        </view> -->
     </view>
 </view>
 

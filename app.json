@@ -2,6 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/lx/index",
+    "pages/base/index",
+    "pages/ssby/index",
     "pages/logs/logs"
   ],
   "window":{

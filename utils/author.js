@@ -15,15 +15,20 @@ const MODELS_URL = {
   // 'flower': 'file://images/flower-model.json',
   'lx': 'https://cube123-9gs5oit6f40a9a64-1312906436.tcloudbaseapp.com/lx-model/model.json',
 
+  'ssby': 'https://cube123-9gs5oit6f40a9a64-1312906436.tcloudbaseapp.com/ssby-model/model.json',
+}
+
+const TEXT_URL = {
+  // 'flower': 'file://images/flower-model.json',
+  'lx': 'https://cube123-9gs5oit6f40a9a64-1312906436.tcloudbaseapp.com/lx-model/lx',
+
+  'ssby': 'https://cube123-9gs5oit6f40a9a64-1312906436.tcloudbaseapp.com/ssby-model/ssby',
 }
 
 /* 全局变量 */
 // 所有的模型
 let models = {
-  'flower': null,
-  'butterfly': null,
-  'apple': null,
-  'sun': null
+
 };
 let curModelType = 'lx'; // 当前模型类型
 
@@ -103,12 +108,10 @@ async function tensorPreprocess(inks) {
  * @param {string} modelType 模型类型
  * @returns true for success, false for failed.
  */
-async function loadModels(modelType) {
-  if (modelType) {
-    curModelType = modelType;
-  }
+async function loadModels(modelUrl,textUrl) {
 
-  if (models[curModelType]) { // 模型已加载
+
+  if (models[modelUrl]) { // 模型已加载
     return true;
   }
 
@@ -119,13 +122,14 @@ async function loadModels(modelType) {
 
   /* 加载并预热模型 */
   try {
-    models[curModelType] = await tfLayers.loadLayersModel(MODELS_URL[curModelType]);
+    models[curModelType] = await tfLayers.loadLayersModel(modelUrl);
   } catch (err) {
     console.log(err);
     return false;
   }
 
-  var dat = await requestFunc("https://cube123-9gs5oit6f40a9a64-1312906436.tcloudbaseapp.com/lx-model/lx")
+
+  var dat = await requestFunc(textUrl)
     console.log(dat)
     var model = models[curModelType]
     // await models[curModelType].predict(strokeTensor);
@@ -262,6 +266,7 @@ function sample(probs, temperature) {
 let autoPainter = {
   loadModels: loadModels,
   generateText: generateText,
+  requestFunc:requestFunc
 
 };
 

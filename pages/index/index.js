@@ -1,36 +1,39 @@
 // pages/ai-painter/index.js
 
 const app = getApp();
+const author = require('../../utils/author.js');
+
+const authorUrl =  'https://cube123-9gs5oit6f40a9a64-1312906436.tcloudbaseapp.com/author.json'
+
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    showActionsheet: false,
-    groups: [{
-        text: '示例菜单',
-        value: 1
-      },
-      {
-        text: '示例菜单',
-        value: 2
-      },
-      {
-        text: '负向菜单',
-        type: 'warn',
-        value: 3
-      }
-    ]
+    author: []
   },
   close: function () {
     this.setData({
       showActionsheet: false
     })
   },
+  jump(e){
+    console.log(e)
+    var author = this.data.author[e.currentTarget.id]
+    wx.navigateTo({
+      url: `../base/index?name=${author.name}&model_url=${author.model_url}&text_url=${author.text_url}`,
+    })
+  },
   jumpLx(e) {
     wx.navigateTo({
       url: '../lx/index',
+    })
+  },
+
+  jumpSsby(e) {
+    wx.navigateTo({
+      url: '../ssby/index',
     })
   },
 
@@ -53,7 +56,12 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {},
+  onShow: async function () {
+    var data = await author.requestFunc(authorUrl)
+    this.setData({
+      author:data.data,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

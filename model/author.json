@@ -1,0 +1,14 @@
+[
+    {
+        "text_url":"https://cube123-9gs5oit6f40a9a64-1312906436.tcloudbaseapp.com/lx-model/lx",
+        "model_url":"https://cube123-9gs5oit6f40a9a64-1312906436.tcloudbaseapp.com/lx-model/model.json",
+        "name":"鲁迅",
+        "alias":"lx"
+    },
+    {
+        "text_url":"https://cube123-9gs5oit6f40a9a64-1312906436.tcloudbaseapp.com/ssby-model/ssby",
+        "model_url":"https://cube123-9gs5oit6f40a9a64-1312906436.tcloudbaseapp.com/ssby-model/model.json",
+        "name":"莎士比亚",
+        "alias":"ssby"
+    }
+]

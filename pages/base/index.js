@@ -8,7 +8,7 @@ const tf = require('@tensorflow/tfjs-core');
 const cpu = require('@tensorflow/tfjs-backend-cpu');
 const webgl = require('@tensorflow/tfjs-backend-webgl');
 const plugin = requirePlugin('tfjsPlugin');
-
+let videoAd = null
 
 var model;
 var dat;
@@ -56,6 +56,24 @@ Page({
       // provide webgl canvas
       canvas: wx.createOffscreenCanvas()
     });
+    var that = this;
+
+    if (wx.createRewardedVideoAd) {
+      videoAd = wx.createRewardedVideoAd({
+        adUnitId: 'adunit-fa5f16f6c284e3d3'
+      })
+      videoAd.onLoad(() => {})
+      videoAd.onError((err) => {})
+      videoAd.onClose((res) => {
+        if (res && res.isEnded) {
+          that.generateText()
+          // 正常播放结束，可以下发游戏奖励
+        } else {
+          console.log("close")
+          // 播放中途退出，不下发游戏奖励
+        }
+      })
+    }
   },
 
   /**
@@ -137,8 +155,21 @@ Page({
         i++
     },50)
   },
+
+  generate(){
+    if (videoAd) {
+      videoAd.show().catch(() => {
+        // 失败重试
+        videoAd.load()
+          .then(() => videoAd.show())
+          .catch(err => {
+            console.log('激励视频 广告显示失败')
+          })
+      })
+    }
+  },
+
   async generateText(){
-   
     var seedSentence = this.data.seedText
   seedSentence = seedSentence.slice(
     seedSentence.length - dat.sampleLen(), seedSentence.length);

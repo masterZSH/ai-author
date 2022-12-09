@@ -32,7 +32,7 @@
 		</view>
     <view class="button-sp-area center">
       <view class="weui-btn weui-btn_mini weui-btn_primary weui-wa-hotarea" aria-role="button" bindtap="randText">随机文本</view>
-      <view class="weui-btn weui-btn_mini weui-btn_primary weui-wa-hotarea" aria-role="button" bindtap="generateText">生成</view>
+      <view class="weui-btn weui-btn_mini weui-btn_primary weui-wa-hotarea" aria-role="button" bindtap="generate">生成</view>
 		</view>
 	</view>
 </view>

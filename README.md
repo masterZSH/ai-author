@@ -1,5 +1,5 @@
 
-## 忽略模型文件夹
+## 基于tensorflow.js LSTM算法训练模型
 
 model
 
